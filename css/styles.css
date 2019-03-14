@@ -1,0 +1,13 @@
+/* CSS Reset  */
+
+html {
+    box-sizing: border-box;
+  }
+
+* {
+  box-sizing: inherit;
+}
+
+button {
+  border: none;
+}
