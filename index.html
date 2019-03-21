@@ -1,14 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Title</title>
-  <link rel="stylesheet" href="css/normalize.css">
+  <title>HolyMinders</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   <link rel="stylesheet" href="css/styles.css">
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width">  <!-- This instructs the device to make the "width" property the same as the device's actual width.  In other words, it makes 1px actually 1/96th of an inch.  Useful for avoiding issues caused by zooming the viewport on mobile devices.  -->
 </head>
-<body>
-  <script src="js/jquery-3.3.1.js"></script>
+
+<body class='px-2'>
+
+  <!-- Main Header ------------------------------  -->
+
+  <header class='main-header container'>
+    <h1 class='text-center pt-3'>My Holy Days</h1>
+    <div class='row align-items-center'>
+      <div class='col-2 text-center px-0'>
+        <img id='logo' class='img-fluid' src='http://via.placeholder.com/75x125?text=Logo'>
+      </div>
+      <nav class='col-10'>
+        <div class='hdr-btns row flex-column pl-2'>
+          <button class='py-2 mb-1 btn btn-primary'>My Holy Days</button>
+          <button class='py-2 mb-1 btn btn-primary'>Add Day</button>
+          <button class='py-2 mb-1 btn btn-primary'>Change Reminder Settings</button>
+        </div>
+      </nav>
+    </div><!-- /row --> 
+  </header><!-- /main-header -->
+
+  <main>
+
+    <!-- Feast Section ------------------------------  -->
+
+    <article class='feast py-3 container' aria-labelledby="feast-1-hdr">
+      <div class='row'>
+        <div class='col-2 col-left bg-secondary rounded text-light'>
+          <div>May 3rd</div>
+        </div><!-- /col-left -->
+        <div class='col-10 col-right'>
+          <h2 class=''>Feast of the Lesser Unencumbered Saints of Greater Swaziland</h2>
+          <div class='tags row pl-3'>
+            <div class='px-1 mr-1 mb-1 bg-info d-inline-block rounded'>Feast</div>
+            <div class='px-1 mr-1 mb-1 bg-info d-inline-block rounded'>Memorial</div>
+          </div><!-- /tags -->
+          <section class='content'>
+            <div class='description'>
+              <img class='img-fluid' src='http://via.placeholder.com/250'>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut molestie laoreet leo non cursus. Nam imperdiet sit amet
+                libero ut convallis. In id libero ut diam finibus pretium id et diam. Integer laoreet porta mi quis ultricies. Nam
+                sodales risus laoreet, varius enim pellentesque, cursus sapien. Vivamus ac varius arcu. In hac habitasse platea
+                dictumst. Aenean hendrerit vel nisl ut malesuada. Suspendisse pellentesque viverra posuere.
+              </p>
+            </div>
+            <section class='drinks bg-info p-1 rounded'>
+              <h3>Suggested beer, wine, and cocktails</h3>
+              <ul class='drinks-list'>
+                <li>Swazi Rice Wine</li>
+                <li>Rum Shandy</li>
+              </ul>
+            </section> <!-- /drinks -->
+          </section> <!-- /content -->
+        </div><!-- /col-right  -->
+      </div> <!-- /row  -->
+    </article><!-- /feast-1  -->
+
+    <article class='feast py-3 container' aria-labelledby="feast-1-hdr">
+      <div class='row'>
+        <div class='col-2 col-left bg-secondary rounded text-light'>
+          <div>May 3rd</div>
+        </div><!-- /col-left -->
+        <div class='col-10 col-right'>
+          <h2 class=''>Solemnity of the Greater, Lightly-encumbered Saints of Lesser Swaziland</h2>
+          <div class='tags row pl-3'>
+            <div class='px-1 mr-1 mb-1 bg-info d-inline-block rounded'>Fast</div>
+            <div class='px-1 mr-1 mb-1 bg-info d-inline-block rounded'>Memorial</div>
+          </div><!-- /tags -->
+          <section class='content'>
+            <div class='description'>
+              <img class='img-fluid' src='http://via.placeholder.com/250'>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut molestie laoreet leo non cursus. Nam imperdiet
+                sit amet
+                libero ut convallis. In id libero ut diam finibus pretium id et diam. Integer laoreet porta mi quis
+                ultricies. Nam
+                sodales risus laoreet, varius enim pellentesque, cursus sapien. Vivamus ac varius arcu. In hac habitasse
+                platea
+                dictumst. Aenean hendrerit vel nisl ut malesuada. Suspendisse pellentesque viverra posuere.
+              </p>
+            </div>
+            <section class='drinks bg-info p-1 rounded'>
+              <h3>Suggested beer, wine, and cocktails</h3>
+              <ul class='drinks-list'>
+                <li>Lilac Beer with Candied Rum Truffles</li>
+              </ul>
+            </section> <!-- /drinks -->
+          </section> <!-- /content -->
+        </div><!-- /col-right  -->
+      </div><!-- /row  -->
+    </article><!-- /feast-2  -->
+
+
+    <!-- Add Holy Day Modal ------------------------------  -->
+
+    <section class='add-holy-day'>
+      <h2 class='text-center'>Add Holy Day</h2>
+      <form action='#' method="POST">
+        <label for='name'>Name:</label>
+        <input id='name' name='name' type="text">
+        <button type='button'>Search</button>
+      </form>
+
+    </section>
+
+    <!-- Main Footer ------------------------------  -->
+
+    <footer class='main-footer'>
+      <button>Back to top</button>
+    </footer>
+
+  </main>
+
+  <!-- Bootstrap & dependencies -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
   <script src="js/scripts.js"></script>
+
 </body>
 </html>
