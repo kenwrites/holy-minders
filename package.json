@@ -1,0 +1,22 @@
+{
+  "name": "holy-minders",
+  "version": "1.0.0",
+  "description": "Reminder app for the Catholic Holy Days of Obligation, and others.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenwrites/holy-minders.git"
+  },
+  "keywords": [
+    "catholic"
+  ],
+  "author": "Ken Farrell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kenwrites/holy-minders/issues"
+  },
+  "homepage": "https://github.com/kenwrites/holy-minders#readme"
+}

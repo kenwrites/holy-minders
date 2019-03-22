@@ -23,9 +23,9 @@
       </div>
       <nav class='col-10'>
         <div class='hdr-btns row flex-column pl-2'>
-          <button class='py-2 mb-1 btn btn-primary'>My Holy Days</button>
-          <button class='py-2 mb-1 btn btn-primary'>Add Day</button>
-          <button class='py-2 mb-1 btn btn-primary'>Change Reminder Settings</button>
+          <button class='py-2 mb-1 btn btn-primary' type='button'>My Holy Days</button>
+          <button class='py-2 mb-1 btn btn-primary' type='button' data-toggle="modal" data-target="#add-holy-day-modal">Add Day</button>
+          <button class='py-2 mb-1 btn btn-primary' type='button'>Change Reminder Settings</button>
         </div>
       </nav>
     </div><!-- /row --> 
@@ -103,23 +103,42 @@
       </div><!-- /row  -->
     </article><!-- /feast-2  -->
 
-
     <!-- Add Holy Day Modal ------------------------------  -->
 
-    <section class='add-holy-day'>
-      <h2 class='text-center'>Add Holy Day</h2>
-      <form action='#' method="POST">
-        <label for='name'>Name:</label>
-        <input id='name' name='name' type="text">
-        <button type='button'>Search</button>
-      </form>
-
-    </section>
+    <div class="modal fade" id="add-holy-day-modal" tabindex="-1" role="dialog" aria-labelledby="add-holy-day-modal-label"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="add-holy-day-modal-label">Add Holy Day</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div><!-- /modal header -->
+          <div class="modal-body">
+            <form action='#' method="POST">
+              <div class="form-group">
+                <label for="input-name">Name:</label>
+                <input type="text" class="form-control" id="input-name">
+              </div>
+            </form>
+          </div><!-- /modal-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Search</button>
+            <!-- <button type="button" class="btn btn-primary">Submit</button> -->
+          </div><!-- /modal-footer -->
+        </div><!-- /modal-content -->
+      </div>
+    </div>
 
     <!-- Main Footer ------------------------------  -->
 
-    <footer class='main-footer'>
-      <button>Back to top</button>
+    <footer class='main-footer mb-3 container'>
+      <div class='row'>
+        <div class='col-2'></div>
+        <div class='col-10'><button class='btn btn-secondary text-light'>Back to top</button></div>
+      </div>
     </footer>
 
   </main>
