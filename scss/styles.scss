@@ -2,7 +2,21 @@
 //     border: 1px solid red;
 // }
 
-// Import Bootstrap
-
+// Color palette
 
 @import 'partials/color-palette';
+
+// Bootstrap variable overrides
+
+// $primary:       $blue !default;
+// $secondary:     $gray-600 !default;
+// $success:       $green !default;
+// $info:          $cyan !default;
+// $warning:       $yellow !default;
+// $danger:        $red !default;
+
+// Import Bootstrap
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+
