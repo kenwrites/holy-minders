@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/kenwrites/holy-minders/issues"
   },
-  "homepage": "https://github.com/kenwrites/holy-minders#readme"
+  "homepage": "https://github.com/kenwrites/holy-minders#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
 }
