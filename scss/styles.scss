@@ -38,6 +38,16 @@ $secondary:      $color-secondary-2-0;
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
+// Fonts
+
+.font-display {
+    font-family: AbibasMedium, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.font-content {
+    font-family:  ProzaLibreMedium, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
 // Main Styles
 
 // .tag {

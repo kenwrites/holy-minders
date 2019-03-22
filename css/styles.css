@@ -12067,6 +12067,14 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.font-display {
+  font-family: AbibasMedium, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.font-content {
+  font-family: ProzaLibreMedium, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 body {
   background-image: linear-gradient(to right, rgba(109, 201, 218, 0.5), rgba(148, 2, 178, 0.15));
 }
