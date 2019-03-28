@@ -1,1 +1,63 @@
-/* You can add global styles to this file, and also import other style files */
+// * {
+//     border: 1px solid red;
+// }
+
+// Color palette
+
+@import './partials/color-palette';
+
+// Bootstrap variable overrides & additions
+
+$color-complement-2: rgb(50, 181, 204);
+
+$theme-colors: (
+    'primary-lightest': $color-primary-1,
+    'primary-lighter': $color-primary-2,
+    'primary-darker': $color-primary-3,
+    'primary-darkest': $color-primary-4,        
+    'secondary-2': $color-secondary-1-0,
+    'secondary-lightest': $color-secondary-2-1,
+    'secondary-lighter': $color-secondary-2-2,
+    'secondary-darker': $color-secondary-2-3,
+    'secondary-darkest': $color-secondary-2-4,
+    'secondary-2-lightest': $color-secondary-1-1,
+    'secondary-2-lighter': $color-secondary-1-2,
+    'secondary-2-darker': $color-secondary-1-3,
+    'secondary-2-darkest': $color-secondary-1-4,
+    'complement': $color-complement-0,
+    'complement-lightest': $color-complement-1,
+    'complement-lighter': $color-complement-2,
+    'complement-darker': $color-complement-3,
+    'complement-darkest': $color-complement-4,
+);
+
+$primary:        $color-primary-0;
+$secondary:      $color-secondary-2-0;
+
+// Import Bootstrap
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+// Fonts
+
+.font-display {
+    font-family: AbibasMedium, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.font-content {
+    font-family:  ProzaLibreMedium, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+// Main Styles
+
+// .tag {
+//     box-shadow: 0 0 1px 0 rgba(0,0,0, .8);
+// }
+
+body {
+    background-image: linear-gradient( to right, rgba($color-complement-1, 50%), rgba($color-secondary-2-0, 15%));
+}
+
+.vcenter-text {
+    line-height: 2.5em;
+}   
