@@ -1,7 +1,3 @@
-// * {
-//     border: 1px solid red;
-// }
-
 // Color palette
 
 @import './partials/color-palette';
@@ -49,10 +45,6 @@ $secondary:      $color-secondary-2-0;
 }
 
 // Main Styles
-
-// .tag {
-//     box-shadow: 0 0 1px 0 rgba(0,0,0, .8);
-// }
 
 body {
     background-image: linear-gradient( to right, rgba($color-complement-1, 50%), rgba($color-secondary-2-0, 15%));
