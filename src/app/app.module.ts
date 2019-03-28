@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { DayDetailComponent } from './day-detail/day-detail.component';
+import { TodayComponent } from './today/today.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainHeaderComponent,
     MainFooterComponent,
-    DayDetailComponent
+    DayDetailComponent,
+    TodayComponent
   ],
   imports: [
     BrowserModule
