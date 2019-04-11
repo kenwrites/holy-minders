@@ -26,4 +26,9 @@ export class HolyDaySearchService {
     return this.http.get<Day[]>(url);
   }
 
+  getDay(month: number, date: number, year: number) {
+    const url = `http://calapi.inadiutorium.cz/api/v0/en/calendars/general-en/${year}/${month}/${date}`;
+    return this.http.get<Day>(url);
+  }
+
 }

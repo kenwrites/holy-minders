@@ -15,7 +15,8 @@ export class TodayComponent implements OnInit {
 
   today: Day;
   tomorrow: Day;
-  month;
+  month: Day[];
+  day: Day;
 
   constructor(public holyDaySearch: HolyDaySearchService) {
   }
@@ -32,11 +33,16 @@ export class TodayComponent implements OnInit {
     this.holyDaySearch.getMonth(month).subscribe(mon => this.month = mon);
   }
 
+  getDay(month: number, date: number, year: number = 2019) {
+    this.holyDaySearch.getDay(month, date, year).subscribe(day => this.day = day);
+  }
+
 
   ngOnInit() {
     this.getToday();
     this.getTomorrow();
     this.getMonth(1);
+    this.getDay(4, 1);
   }
 
 }
