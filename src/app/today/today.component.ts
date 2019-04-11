@@ -30,14 +30,13 @@ export class TodayComponent implements OnInit {
 
   getMonth(month: number) {
     this.holyDaySearch.getMonth(month).subscribe(mon => this.month = mon);
-    console.dir(this.month);
   }
 
 
   ngOnInit() {
     this.getToday();
     this.getTomorrow();
-    this.getMonth();
+    this.getMonth(1);
   }
 
 }
