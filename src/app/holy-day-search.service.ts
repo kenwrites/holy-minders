@@ -16,40 +16,31 @@ export class HolyDaySearchService {
   constructor(private http: HttpClient) {
   }
 
-  // getFromApi(args: {
-  //   today?: boolean;
-  //   tomorrow?: boolean;
-  //   month?: number;
-  //   date?: number;
-  //   year?: number;
-  // }) {
-  //   const url: string = make_url(args);
-  //   return this.http.get<Day>(url);
-  // }
-
-  // getToday(): Observable<Day> {
-  //   const today = this.getFromApi({ today: true });
-  //   return today;
-  // }
+  getFromApi(args: {
+    today?: boolean;
+    tomorrow?: boolean;
+    month?: number;
+    date?: number;
+    year?: number;
+  }): Observable<Day> & Observable<Day[]> {
+    const url: string = make_url(args);
+    return this.http.get<Day & Day[]>(url);
+  }
 
   getToday(): Observable<Day> {
-    const url = make_url({ today: true });
-    return this.http.get<Day>(url);
+    return this.getFromApi({ today: true });
   }
 
-  getTomorrow() {
-    const url = make_url({ tomorrow: true });
-    return this.http.get<Day>(url);
+  getTomorrow(): Observable<Day> {
+    return this.getFromApi({ tomorrow: true });
   }
 
-  getMonth(month: number) {
-    const url = make_url({ month });
-    return this.http.get<Day[]>(url);
+  getMonth(month: number): Observable<Day[]> {
+    return this.getFromApi({ month });
   }
 
-  getDay(month: number, date: number, year: number = 2019) {
-    const url = make_url({ month, date, year });
-    return this.http.get<Day>(url);
+  getDay(month: number, date: number, year: number = 2019): Observable<Day> {
+    return this.getFromApi({ month, date, year });
   }
 
 }
