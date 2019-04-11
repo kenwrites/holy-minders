@@ -1,47 +1,19 @@
 import { Injectable } from '@angular/core';
-import { callbackify } from 'util';
 import { Day } from './definitions/day';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HolyDaySearchService {
-  getToday(): Day {
-    let url: string;
-    let request: XMLHttpRequest;
-    let today: Day;
 
-    url = 'http://calapi.inadiutorium.cz/api/v0/en/calendars/general-en/today';
-    request = new XMLHttpRequest();
-
-    request.onreadystatechange = () => {
-      if (request.readyState < 4) {
-
-        console.log('request readyState: ' + request.readyState);
-
-      } else if (request.readyState === 4) {
-
-        console.log('request readyState: ' + request.readyState);
-
-        if (request.status === 200) {
-
-          console.log('request status: ' + request.status);
-          today = JSON.parse(request.response);
-          console.log('service says today is:');
-          console.log(today);
-          return today;
-
-        } else {
-
-          console.log('request status: ' + request.status);
-
-        }
-      }
-    };
-
-    request.open('GET', url);
-    request.send();
+  constructor(private http: HttpClient) {
   }
 
-  constructor() { }
+  getToday(): Observable<Day> {
+    const url = 'http://calapi.inadiutorium.cz/api/v0/en/calendars/general-en/today';
+    return this.http.get<Day>(url);
+  }
+
 }

@@ -4,4 +4,5 @@ export interface Day {
     season_week: number;
     celebrations: object[];
     weekday: string;
+    error: Error;
 }
