@@ -14,6 +14,8 @@ import { Observable } from 'rxjs';
 export class TodayComponent implements OnInit {
 
   today: Day;
+  tomorrow: Day;
+  month;
 
   constructor(public holyDaySearch: HolyDaySearchService) {
   }
@@ -22,9 +24,20 @@ export class TodayComponent implements OnInit {
     this.holyDaySearch.getToday().subscribe(day => this.today = day);
   }
 
+  getTomorrow() {
+    this.holyDaySearch.getTomorrow().subscribe(day => this.tomorrow = day);
+  }
+
+  getMonth(month: number) {
+    this.holyDaySearch.getMonth(month).subscribe(mon => this.month = mon);
+    console.dir(this.month);
+  }
+
 
   ngOnInit() {
     this.getToday();
+    this.getTomorrow();
+    this.getMonth();
   }
 
 }
