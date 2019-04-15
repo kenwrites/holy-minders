@@ -1,3 +1,6 @@
+// tslint:disable: variable-name
+
+
 import { Component, OnInit } from '@angular/core';
 import { HolyDaySearchService } from '../holy-day-search.service';
 import { DayDetailComponent } from '../day-detail/day-detail.component';
@@ -17,32 +20,59 @@ export class TodayComponent implements OnInit {
   tomorrow: Day;
   month: Day[];
   day: Day;
+  days_of_obligation: Day[];
 
   constructor(public holyDaySearch: HolyDaySearchService) {
   }
 
   getToday() {
-    this.holyDaySearch.getToday().subscribe(day => this.today = day);
+    this.holyDaySearch.getToday().subscribe(day => {
+      this.today = day;
+      console.log('today:');
+      console.dir(this.today);
+    });
   }
 
   getTomorrow() {
-    this.holyDaySearch.getTomorrow().subscribe(day => this.tomorrow = day);
+    this.holyDaySearch.getTomorrow().subscribe(day => {
+      this.tomorrow = day;
+      console.log('tomorrow:');
+      console.dir(this.tomorrow);
+    });
   }
 
   getMonth(month: number) {
-    this.holyDaySearch.getMonth(month).subscribe(mon => this.month = mon);
+    this.holyDaySearch.getMonth(month).subscribe(mon => {
+      this.month = mon;
+      console.log('month:');
+      console.dir(this.month);
+    });
   }
 
   getDay(month: number, date: number, year: number = 2019) {
-    this.holyDaySearch.getDay(month, date, year).subscribe(day => this.day = day);
+    this.holyDaySearch.getDay(month, date, year).subscribe(day => {
+      this.day = day;
+      console.log('day:');
+      console.dir(this.day);
+    });
+  }
+
+  getDaysOfObligation(year: number = 2019) {
+    this.holyDaySearch.getDaysOfObligation(year).subscribe(days => {
+      this.days_of_obligation = days;
+      console.log('days of obligation:');
+      console.dir(this.days_of_obligation);
+    });
   }
 
 
   ngOnInit() {
-    this.getToday();
-    this.getTomorrow();
-    this.getMonth(1);
-    this.getDay(4, 1);
+    // this.getToday();
+    // this.getTomorrow();
+    // this.getMonth(1);
+    // this.getDay(4, 1);
+    this.getDaysOfObligation(2019);
+
   }
 
 }

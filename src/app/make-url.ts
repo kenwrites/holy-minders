@@ -19,5 +19,8 @@ export function make_url(
         return `${base_url}/${year}/${month}/${date}`;
     } else if (month) {
         return `${base_url}/${year}/${month}`;
+    } else {
+        console.error('Problem with make_url arguments.  Unable to create URL');
     }
+    return;
 }
