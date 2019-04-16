@@ -7,7 +7,6 @@ import { DayDetailComponent } from '../day-detail/day-detail.component';
 import { Day } from '../definitions/day';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-today',
   templateUrl: './today.component.html',
@@ -20,9 +19,20 @@ export class TodayComponent implements OnInit {
   tomorrow: Day;
   month: Day[];
   day: Day;
-  days_of_obligation: Day[];
+  days_of_ob: Day[] = [];
+  have_days_of_obligation: boolean;
 
   constructor(public holyDaySearch: HolyDaySearchService) {
+    this.have_days_of_obligation = false;
+  }
+
+  ngOnInit() {
+    // this.getToday();
+    // this.getTomorrow();
+    // this.getMonth(1);
+    // this.getDay(4, 1);
+    this.getDaysOfObligation(2019);
+
   }
 
   getToday() {
@@ -58,21 +68,17 @@ export class TodayComponent implements OnInit {
   }
 
   getDaysOfObligation(year: number = 2019) {
-    this.holyDaySearch.getDaysOfObligation(year).subscribe(days => {
-      this.days_of_obligation = days;
-      console.log('days of obligation:');
-      console.dir(this.days_of_obligation);
-    });
-  }
-
-
-  ngOnInit() {
-    // this.getToday();
-    // this.getTomorrow();
-    // this.getMonth(1);
-    // this.getDay(4, 1);
-    this.getDaysOfObligation(2019);
-
-  }
-
+    const day_observer = {
+      next: day => {
+        this.days_of_ob.push(day);
+        console.dir(this.days_of_ob);
+      },
+      error: error => console.error(error.message),
+      complete: () => {
+        console.log('get_day_requests emitted complete');
+        this.have_days_of_obligation = true;
+      }
+    }; // end day_observer
+    this.holyDaySearch.getDaysOfObligation(year).subscribe(day_observer);
+  } // end getDaysOfObligation
 }

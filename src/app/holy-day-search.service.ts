@@ -3,10 +3,11 @@
 import { Injectable } from '@angular/core';
 import { Day } from './definitions/day';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, merge } from 'rxjs';
 
 import { make_url } from './make-url';
 import { days_of_obligation } from './data/days-of-obligation';
+import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,12 @@ import { days_of_obligation } from './data/days-of-obligation';
 
 export class HolyDaySearchService {
 
+  holy_days: Day[];
+  have_holy_days: boolean;
+
   constructor(private http: HttpClient) {
   }
+
 
   getFromApi(args: {
     today?: boolean;
@@ -44,21 +49,40 @@ export class HolyDaySearchService {
     return this.getFromApi({ month, date, year });
   }
 
-  getDaysOfObligation(year: number = 2019): Observable<Day[]> {
-    const days: Day[] = [];
-    const dates: string[] = days_of_obligation[year];
-    // let complete_requests = 0;
-    dates.forEach(date => {
-      const month = parseInt(date.slice(5, 7), 10);
-      const day = parseInt(date.slice(8), 10);
-      this.getDay(month, day, year).subscribe(holy_day => {
-        days.push(holy_day);
-        console.log('days:');
-        console.dir(days);
-      });
+  mergeDayRequests(dates_array: string[], year: number = 2019): Observable<Day> {
+    let get_day_requests: Observable<Day>;
+
+    // prime the pump:  insert 1 http.get into get_day_requests.
+    // This will ensure that you can merge into it.
+
+    const date1 = dates_array[0];
+    const m1 = parseInt(date1.slice(5, 7), 10);
+    const d1 = parseInt(date1.slice(8), 10);
+    get_day_requests = this.getDay(m1, d1, year);
+
+    // merge remaining requests with get_day_requests
+
+    dates_array.forEach((date, i) => {
+      if (i > 0) {
+        const month = parseInt(date.slice(5, 7), 10);
+        const day = parseInt(date.slice(8), 10);
+        const new_get = this.getDay(month, day, year);
+        // console.dir(new_get);
+        get_day_requests = merge(get_day_requests, new_get);
+      }
     });
 
-    return of(days);
+    console.dir(get_day_requests);
+    return get_day_requests;
+
+  }
+
+  getDaysOfObligation(year: number = 2019): Observable<Day> {
+
+    const days: Day[] = [];
+    const dates: string[] = days_of_obligation[year];
+    const requests = this.mergeDayRequests(dates, year);
+    return requests;
 
   } // end getDaysOfObligation
 }
