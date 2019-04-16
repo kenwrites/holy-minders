@@ -69,16 +69,38 @@ export class TodayComponent implements OnInit {
 
   getDaysOfObligation(year: number = 2019) {
     const day_observer = {
+      // on receiving day, push to days array
       next: day => {
         this.days_of_ob.push(day);
         console.dir(this.days_of_ob);
       },
       error: error => console.error(error.message),
+
+      // on 'complete', sort days by date
       complete: () => {
+        function by_date(a, b): number {
+
+          // remove non-numeral characters and convert to number
+          const not_a_digit = /\D/g;
+          const date_a: number = parseInt(a.date.replace(not_a_digit, ''), 10);
+          const date_b: number = parseInt(b.date.replace(not_a_digit, ''), 10);
+
+          // sort by date
+          if (date_a < date_b) {
+            return -1;
+          } else if (date_a === date_b) {
+            return 0;
+          } else if (date_a > date_b) {
+            return 1;
+          }
+        }
         console.log('get_day_requests emitted complete');
+        this.days_of_ob.sort(by_date);
         this.have_days_of_obligation = true;
       }
     }; // end day_observer
+
     this.holyDaySearch.getDaysOfObligation(year).subscribe(day_observer);
+
   } // end getDaysOfObligation
 }
