@@ -7,7 +7,6 @@ import { Observable, of, merge } from 'rxjs';
 
 import { make_url } from './make-url';
 import { days_of_obligation } from './data/days-of-obligation';
-import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +52,7 @@ export class HolyDaySearchService {
     let get_day_requests: Observable<Day>;
 
     // prime the pump:  insert 1 http.get into get_day_requests.
-    // This will ensure that you can merge into it.
+    // This will ensure that you can merge new requests with it.
 
     const date1 = dates_array[0];
     const m1 = parseInt(date1.slice(5, 7), 10);
@@ -67,22 +66,19 @@ export class HolyDaySearchService {
         const month = parseInt(date.slice(5, 7), 10);
         const day = parseInt(date.slice(8), 10);
         const new_get = this.getDay(month, day, year);
-        // console.dir(new_get);
         get_day_requests = merge(get_day_requests, new_get);
       }
     });
 
-    console.dir(get_day_requests);
     return get_day_requests;
 
-  }
+  } // end mergeDayRequests
 
   getDaysOfObligation(year: number = 2019): Observable<Day> {
 
-    const days: Day[] = [];
     const dates: string[] = days_of_obligation[year];
     const requests = this.mergeDayRequests(dates, year);
     return requests;
 
-  } // end getDaysOfObligation
+  }
 }

@@ -3,9 +3,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { HolyDaySearchService } from '../holy-day-search.service';
-import { DayDetailComponent } from '../day-detail/day-detail.component';
 import { Day } from '../definitions/day';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-today',
@@ -72,7 +70,6 @@ export class TodayComponent implements OnInit {
       // on receiving day, push to days array
       next: day => {
         this.days_of_ob.push(day);
-        console.dir(this.days_of_ob);
       },
       error: error => console.error(error.message),
 
@@ -93,11 +90,11 @@ export class TodayComponent implements OnInit {
           } else if (date_a > date_b) {
             return 1;
           }
-        }
-        console.log('get_day_requests emitted complete');
+        } // end by_date
+
         this.days_of_ob.sort(by_date);
         this.have_days_of_obligation = true;
-      }
+      } // end complete
     }; // end day_observer
 
     this.holyDaySearch.getDaysOfObligation(year).subscribe(day_observer);
