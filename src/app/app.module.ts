@@ -7,6 +7,7 @@ import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { DayDetailComponent } from './day-detail/day-detail.component';
 import { TodayComponent } from './today/today.component';
+import { UserTestComponent } from './user-test/user-test.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { TodayComponent } from './today/today.component';
     MainHeaderComponent,
     MainFooterComponent,
     DayDetailComponent,
-    TodayComponent
+    TodayComponent,
+    UserTestComponent
   ],
   imports: [
     BrowserModule,

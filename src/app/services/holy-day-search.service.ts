@@ -1,5 +1,3 @@
-// tslint:disable: variable-name
-
 import { Injectable } from '@angular/core';
 import { Day } from '../definitions/day';
 import { HttpClient } from '@angular/common/http';
