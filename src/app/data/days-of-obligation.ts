@@ -1,4 +1,3 @@
-// tslint:disable-next-line: variable-name
 export const days_of_obligation = {
     2019: [
         '2019-01-01',

@@ -1,4 +1,3 @@
-// tslint:disable: variable-name
 
 import { Component, OnInit } from '@angular/core';
 import { HolyDaySearchService } from '../services/holy-day-search.service';
