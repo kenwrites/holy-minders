@@ -4,6 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HolyDaySearchService } from '../holy-day-search.service';
 import { Day } from '../definitions/day';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-today',
@@ -97,7 +98,10 @@ export class TodayComponent implements OnInit {
       } // end complete
     }; // end day_observer
 
-    this.holyDaySearch.getDaysOfObligation(year).subscribe(day_observer);
+    this.holyDaySearch.getDaysOfObligation(year).pipe(
+      catchError(error => { throw new Error('error in holy day request.'); })
+    )
+      .subscribe(day_observer);
 
   } // end getDaysOfObligation
 }
