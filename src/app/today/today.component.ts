@@ -37,32 +37,24 @@ export class TodayComponent implements OnInit {
   getToday() {
     this.holyDaySearch.getToday().subscribe(day => {
       this.today = day;
-      console.log('today:');
-      console.dir(this.today);
     });
   }
 
   getTomorrow() {
     this.holyDaySearch.getTomorrow().subscribe(day => {
       this.tomorrow = day;
-      console.log('tomorrow:');
-      console.dir(this.tomorrow);
     });
   }
 
   getMonth(month: number) {
     this.holyDaySearch.getMonth(month).subscribe(mon => {
       this.month = mon;
-      console.log('month:');
-      console.dir(this.month);
     });
   }
 
   getDay(month: number, date: number, year: number = 2019) {
     this.holyDaySearch.getDay(month, date, year).subscribe(day => {
       this.day = day;
-      console.log('day:');
-      console.dir(this.day);
     });
   }
 
@@ -99,7 +91,7 @@ export class TodayComponent implements OnInit {
     }; // end day_observer
 
     this.holyDaySearch.getDaysOfObligation(year).pipe(
-      catchError(error => { throw new Error('error in holy day request.'); })
+      catchError(error => { throw new Error(error.message); })
     )
       .subscribe(day_observer);
 
