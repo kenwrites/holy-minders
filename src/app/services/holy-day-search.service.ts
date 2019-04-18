@@ -1,12 +1,12 @@
 // tslint:disable: variable-name
 
 import { Injectable } from '@angular/core';
-import { Day } from './definitions/day';
+import { Day } from '../definitions/day';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, merge } from 'rxjs';
 
-import { make_url } from './make-url';
-import { days_of_obligation } from './data/days-of-obligation';
+import { make_url } from '../make-url';
+import { days_of_obligation } from '../data/days-of-obligation';
 
 @Injectable({
   providedIn: 'root'
