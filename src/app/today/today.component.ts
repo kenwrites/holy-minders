@@ -1,6 +1,5 @@
 // tslint:disable: variable-name
 
-
 import { Component, OnInit } from '@angular/core';
 import { HolyDaySearchService } from '../holy-day-search.service';
 import { Day } from '../definitions/day';
@@ -28,34 +27,50 @@ export class TodayComponent implements OnInit {
   ngOnInit() {
     // this.getToday();
     // this.getTomorrow();
-    // this.getMonth(1);
+    // this.getMonth(13);
     // this.getDay(4, 1);
-    this.getDaysOfObligation(2019);
-
+    // this.getDaysOfObligation(2019);
   }
 
   getToday() {
-    this.holyDaySearch.getToday().subscribe(day => {
-      this.today = day;
-    });
+    this.holyDaySearch.getToday().pipe(
+      catchError(error => { throw new Error(error.message); })
+    )
+      .subscribe(
+        day => this.today = day,
+        error => console.error(error.message),
+      );
   }
 
   getTomorrow() {
-    this.holyDaySearch.getTomorrow().subscribe(day => {
-      this.tomorrow = day;
-    });
+    this.holyDaySearch.getTomorrow().pipe(
+      catchError(error => { throw new Error(error.message); })
+    )
+      .subscribe(
+        day => this.tomorrow = day,
+        error => console.error(error.message),
+      );
   }
 
   getMonth(month: number) {
-    this.holyDaySearch.getMonth(month).subscribe(mon => {
-      this.month = mon;
-    });
+    this.holyDaySearch.getMonth(month).pipe(
+      catchError(error => { throw new Error(error.message); })
+    )
+      .subscribe(
+        mon => this.month = mon,
+        error => console.error(error.message),
+      );
   }
 
   getDay(month: number, date: number, year: number = 2019) {
-    this.holyDaySearch.getDay(month, date, year).subscribe(day => {
-      this.day = day;
-    });
+    this.holyDaySearch.getDay(month, date, year)
+      .pipe(
+        catchError(error => { throw new Error(error.message); })
+      )
+      .subscribe(
+        day => this.day = day,
+        error => console.error(error.message),
+      );
   }
 
   getDaysOfObligation(year: number = 2019) {
