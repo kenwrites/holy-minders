@@ -5,12 +5,12 @@
 <p *ngIf='day'>Here is the day you requested: {{day.date}}</p>
 <section *ngIf='days_of_obligation'>
     <ul>
-        <li>day: {{days_of_ob[0].date}}</li>
-        <li>season: {{days_of_ob[0].season}}</li>
-        <li>season_week: {{days_of_ob[0].season_week}}</li>
-        <li>weekday: {{days_of_ob[0].weekday}}</li>
-        <li>season: {{days_of_ob[0].season}}</li>
-        <li *ngIf='days_of_obligation[0].celebrations[0]'>celebration 1: {{days_of_ob[0].celebrations[0].title}}</li>
-        <li *ngIf='days_of_obligation[0].celebrations[1]'>celebration 2: {{days_of_ob[0].celebrations[1].title}}</li>
+        <li>day: {{days_of_obligation[0].date}}</li>
+        <li>season: {{days_of_obligation[0].season}}</li>
+        <li>season_week: {{days_of_obligation[0].season_week}}</li>
+        <li>weekday: {{days_of_obligation[0].weekday}}</li>
+        <li>season: {{days_of_obligation[0].season}}</li>
+        <li *ngIf='days_of_obligation[0].celebrations[0]'>celebration 1: {{days_of_obligation[0].celebrations[0].title}}</li>
+        <li *ngIf='days_of_obligation[0].celebrations[1]'>celebration 2: {{days_of_obligation[0].celebrations[1].title}}</li>
     </ul>
 </section>

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { HolyDaySearchService } from '../services/holy-day-search.service';
 import { Day } from '../definitions/day';
 import { catchError } from 'rxjs/operators';
-import { days_of_obligation } from '../data/days-of-obligation';
 
 @Component({
   selector: 'app-today',
@@ -80,6 +79,8 @@ export class TodayComponent implements OnInit {
           console.dir(`days in today component:`);
           console.dir(days);
           this.days_of_obligation = days;
+          console.log('days_of_obligation class property:');
+          console.dir(this.days_of_obligation); 
         },
         error => console.error(error.message),
       );
