@@ -15,7 +15,7 @@ export class HolyDaySearchService {
   constructor(private http: HttpClient) {
   }
 
-  // Get days from API.  This method will be used by others to get days.
+  // Get days from API.  This method will be used by others for API access.
 
   getFromApi(args: {
     today?: boolean;
@@ -28,7 +28,7 @@ export class HolyDaySearchService {
     return this.http.get<Day & Day[]>(url);
   }
 
-  // Get today, tomorrow, a full month, or a specific day from the API.
+  // Get today, tomorrow, a full month, or a specific day.
 
   getToday(): Observable<Day> {
     return this.getFromApi({ today: true });

@@ -1,4 +1,14 @@
-<p>today works!</p>
+<section>
+    <div class='col'>
+        <h2 class='bg-secondary text-white p-2 rounded mt-3'>Today in the Liturgical Calendar</h2>
+    </div>
+    <app-day-detail *ngIf='today' [day]='today'></app-day-detail>    
+</section>
+
+
+
+
+<!-- Components for testing services
 <p *ngIf='today'>Here is today:  {{today.date}}</p>
 <p *ngIf='tomorrow'>Here is tomorrow:  {{tomorrow.date}}</p>
 <p *ngIf='month'>Here is the first of the month: {{month[0].date}}</p>
@@ -16,4 +26,4 @@
 </section>
 <button (click)='getMyDays()'>Get My Days</button>
 <button (click)='addDay(today)'>Add Today to My Holy Days</button>
-<button (click)='removeDay(today)'>Remove Today from My Holy Days</button>
+<button (click)='removeDay(today)'>Remove Today from My Holy Days</button> -->

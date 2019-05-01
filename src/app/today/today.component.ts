@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { HolyDaySearchService } from '../services/holy-day-search.service';
 import { Day } from '../definitions/day';
 import { catchError } from 'rxjs/operators';
