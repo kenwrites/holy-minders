@@ -16,6 +16,7 @@ export class DayDetailComponent implements OnInit {
   day_of_month: number;
   date: Date;
   month: string;
+  title: string;
 
   constructor() { 
 
@@ -33,7 +34,15 @@ export class DayDetailComponent implements OnInit {
     this.day_of_month = this.date_split[2];
     this.date = new Date(this.year, this.month_numeral-1, this.day_of_month);
     this.month = this.date.toDateString().split(' ')[1];
-  
-  }
+
+    // extract title from today's first celebration
+    
+    if (this.day.celebrations[0]) {
+      this.title = this.day.celebrations[0].title;
+    } else {
+      this.title = "Sorry.  No feasts or special liturgical days today."
+    }
+
+  } // end ngOnInit
 
 }
