@@ -23,9 +23,16 @@ export class MyHolyDaysService {
   makeNewUser(days: Day[]) {
     this.my_holy_days = days;
     this.initial_user_setup = true;
+    this.sortDays();
+
   }
 
   // add day
+
+  addDay(day: Day) {
+    this.my_holy_days.push(day);
+
+  }
 
   // remove day
 
@@ -35,5 +42,27 @@ export class MyHolyDaysService {
     return this.my_holy_days;
   }
 
+  // sort my_holy_days by date.  Need to do this after adding a new day,
+  // as the new day will likely be out of order.  
+
+  sortDays() {
+    
+    function extract_date(day: Day): number {
+      const date_string = day.date;
+      const not_a_digit = /\D/g;
+      const date = parseInt(date_string.replace(not_a_digit, ''), 10); 
+      return date;
+    }
+
+    let byDate = (day1, day2): number => {
+      const date1: number = extract_date(day1);
+      const date2: number = extract_date(day2);
+      return date1 - date2;
+    }
+
+    this.my_holy_days.sort(byDate);
+
+  } // end sortDays
+ 
 }
 
