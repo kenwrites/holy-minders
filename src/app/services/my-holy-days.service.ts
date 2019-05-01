@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Day } from '../definitions/day';
 import { HolyDaySearchService } from './holy-day-search.service';
-import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +15,7 @@ export class MyHolyDaysService {
     this.initial_user_setup = false;
    }
 
-  // create holy days for new user.  Initial list will just be
-  // the holy days of obligation.
+  // create holy days for new user.  
 
   makeNewUser(days: Day[]) {
     this.my_holy_days = days;
@@ -31,10 +28,13 @@ export class MyHolyDaysService {
   addDay(day: Day) {
     this.my_holy_days.push(day);
     this.sortDays();
-    console.log(this.my_holy_days);
   }
 
   // remove day
+
+  removeDay(day_to_remove: Day) {
+    this.my_holy_days = this.my_holy_days.filter(day => day !== day_to_remove)
+  }
 
   // provide list of days for current user
 

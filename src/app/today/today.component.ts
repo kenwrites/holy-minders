@@ -17,6 +17,7 @@ export class TodayComponent implements OnInit {
   month: Day[];
   day: Day;
   days_of_obligation: Day[];
+  my_holy_days: Day[];
 
   constructor(private holyDaySearch: HolyDaySearchService, private myHolyDays: MyHolyDaysService) {
   }
@@ -91,11 +92,15 @@ export class TodayComponent implements OnInit {
   }
 
   getMyDays() {
-    this.days_of_obligation = this.myHolyDays.getDays();
+    this.my_holy_days = this.myHolyDays.getDays();
   }
 
   addDay(day: Day) {
     this.myHolyDays.addDay(day);
+  }
+
+  removeDay(day: Day) {
+    this.myHolyDays.removeDay(day);
   }
 
 }
