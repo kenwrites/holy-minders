@@ -15,6 +15,8 @@ export class HolyDaySearchService {
   constructor(private http: HttpClient) {
   }
 
+  // Get days from API.  This method will be used by others to get days.
+
   getFromApi(args: {
     today?: boolean;
     tomorrow?: boolean;
@@ -25,6 +27,8 @@ export class HolyDaySearchService {
     const url: string = make_url(args);
     return this.http.get<Day & Day[]>(url);
   }
+
+  // Get today, tomorrow, a full month, or a specific day from the API.
 
   getToday(): Observable<Day> {
     return this.getFromApi({ today: true });
@@ -42,7 +46,11 @@ export class HolyDaySearchService {
     return this.getFromApi({ month, date, year });
   }
 
-  makeRequestArray(dates, array_year) {
+  // Get the holy days of obligation for a particular year.  Requests are 
+  // first bundled in an array, then the collected Observables are zipped
+  // into a single Observable that returns a Day[]
+
+  makeRequestArray(dates, array_year): Observable<Day>[] {
     let get_day_requests: Observable<Day>[] = [];
     dates.forEach((date) => {
       const month = parseInt(date.slice(5, 7), 10);
@@ -64,4 +72,5 @@ export class HolyDaySearchService {
     const days = this.zipDayRequests(dates, year);
     return days;
   } 
+
 }
