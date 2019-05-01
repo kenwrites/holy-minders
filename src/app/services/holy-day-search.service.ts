@@ -63,5 +63,5 @@ export class HolyDaySearchService {
     const dates: string[] = days_of_obligation[year];
     const days = this.zipDayRequests(dates, year);
     return days;
-  } // end getDaysOfObligation
+  } 
 }
