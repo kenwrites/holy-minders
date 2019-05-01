@@ -13,8 +13,7 @@ Backend.
 # Installation / Testing
 
 Dependencies:
-- node.js
-- npm
+- node.js / npm
 - the Angular CLI
 
 Once you've got the dependencies:
