@@ -22,7 +22,7 @@ export class TodayComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getToday();
+    this.getToday();
     // this.getTomorrow();
     // this.getMonth(13);
     // this.getDay(4, 1);
@@ -92,6 +92,10 @@ export class TodayComponent implements OnInit {
 
   getMyDays() {
     this.days_of_obligation = this.myHolyDays.getDays();
+  }
+
+  addDay(day: Day) {
+    this.myHolyDays.addDay(day);
   }
 
 }
