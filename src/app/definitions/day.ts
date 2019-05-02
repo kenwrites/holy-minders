@@ -14,3 +14,14 @@ export interface Day {
     error: Error;
 }
 
+export interface FormattedDay extends Day {
+    date: string;
+    season: string;
+    season_week: number;
+    celebrations: Celebration[];
+    weekday: string;
+    error: Error;
+    JSDate: Date;
+    month: string;
+  }
+
