@@ -23,10 +23,10 @@ export class TodayComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getToday();
+    this.getToday();
     // this.getTomorrow();
     // this.getMonth(13);
-    this.getDay(5, 1);
+    // this.getDay(5, 1);
     // this.getDaysOfObligation(2019);
     this.makeNewUser();
   }
@@ -69,8 +69,6 @@ export class TodayComponent implements OnInit {
       .subscribe(
         day => {
           this.day = day;
-          // next-line:  temporary, for testing today component with multiple celebrations
-          this.today = day;
         },
         error => console.error(error.message),
       );
