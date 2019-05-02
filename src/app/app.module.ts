@@ -9,6 +9,7 @@ import { DayDetailComponent } from './day-detail/day-detail.component';
 import { TodayComponent } from './today/today.component';
 import { CelebrationComponent } from './celebration/celebration.component';
 import { DaysListComponent } from './days-list/days-list.component';
+import { MyHolyDaysComponent } from './my-holy-days/my-holy-days.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { DaysListComponent } from './days-list/days-list.component';
     TodayComponent,
     CelebrationComponent,
     DaysListComponent,
+    MyHolyDaysComponent,
   ],
   imports: [
     BrowserModule,

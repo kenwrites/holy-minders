@@ -1,6 +1,6 @@
-<section>
+<section id="today" aria-labelledby="today-hdr">
     <div class='container'>
-        <h2 class='bg-secondary text-white p-2 rounded mt-3 mx-n3'>Today in the Liturgical Calendar</h2>
+        <h2 id="today-hdr" class='bg-secondary text-white p-2 rounded mt-3 mx-n3'>Today in the Liturgical Calendar</h2>
     </div>
     <app-day-detail *ngIf='today' [day]='today'></app-day-detail>    
 </section>
