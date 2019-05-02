@@ -3,7 +3,7 @@ import { Day } from '../definitions/day';
 import { HttpClient } from '@angular/common/http';
 import { Observable, zip } from 'rxjs';
 
-import { make_url } from '../make-url';
+import { make_url } from '../scripts/make-url';
 import { days_of_obligation } from '../data/days-of-obligation';
 
 @Injectable({
