@@ -1,4 +1,4 @@
-interface Celebration {
+export interface Celebration {
     colour: string;
     rank: string;
     rank_num: number;

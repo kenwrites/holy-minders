@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Day } from '../definitions/day';
+import { Day, Celebration } from '../definitions/day';
 
 @Component({
   selector: 'app-day-detail',
@@ -16,13 +16,15 @@ export class DayDetailComponent implements OnInit {
   day_of_month: number;
   date: Date;
   month: string;
-  title: string;
+  celebrations: Celebration[];
 
   constructor() { 
 
   }
 
   ngOnInit() {
+
+    console.log(this.day);
 
     // extract human-readable day, month, and year from day.date
 
@@ -35,14 +37,14 @@ export class DayDetailComponent implements OnInit {
     this.date = new Date(this.year, this.month_numeral-1, this.day_of_month);
     this.month = this.date.toDateString().split(' ')[1];
 
-    // extract title from today's first celebration
+    // extract title and other celebration details from today's first celebration
     
     if (this.day.celebrations[0]) {
-      this.title = this.day.celebrations[0].title;
+      this.celebrations = this.day.celebrations;
     } else {
-      this.title = "Sorry.  No feasts or special liturgical days today."
+      this.celebrations[0].title = "Sorry.  No feasts or special liturgical days today.  Try again tomorrow, there's bound to be something."
     }
-
+        
   } // end ngOnInit
 
 }

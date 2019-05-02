@@ -17,7 +17,7 @@ import { UserTestComponent } from './user-test/user-test.component';
     MainFooterComponent,
     DayDetailComponent,
     TodayComponent,
-    UserTestComponent
+    UserTestComponent,
   ],
   imports: [
     BrowserModule,

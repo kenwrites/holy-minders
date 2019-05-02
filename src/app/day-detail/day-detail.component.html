@@ -1,21 +1,18 @@
-<section>
-  <!-- <h3>tests</h3>
-  <ul>
-    <li>year: {{year}}</li>
-    <li>month: {{month}}</li>
-    <li>day: {{day_of_month}}</li>
-  </ul>
-</section> -->
+
+
 <article class='feast py-3 container' aria-labelledby="feast-1-hdr">
   <div class='row'>
     <div class='col-2 col-left bg-complement-lightest rounded text-right pt-1'>
       <div>{{month}} {{day_of_month}}</div>
     </div><!-- /col-left -->
+    
     <div class='col-10 col-right'>
-      <h2 id='feast-1-hdr' class=''>{{title}}</h2>
+    
+      
+      <h2 id='feast-1-hdr' class=''>{{celebrations[0].title}}</h2>
       <div class='tags row pl-3 mb-1'>
-        <div class='tag px-2 mr-1 mb-1 bg-complement-lightest d-inline-block rounded'>Feast</div>
-        <div class='tag px-2 mr-1 mb-1 bg-complement-lightest d-inline-block rounded'>Memorial</div>
+        <div class='tag px-2 mr-1 mb-1 bg-complement-lightest d-inline-block rounded'><span class="font-weight-bold">Rank:</span> {{celebrations[0].rank | titlecase}}, {{celebrations[0].rank_num}}</div>
+        <div class='tag px-2 mr-1 mb-1 bg-complement-lightest d-inline-block rounded'><span class="font-weight-bold">Color:</span> {{celebrations[0].colour | titlecase}}</div>
       </div><!-- /tags -->
       <section class='content'>
         <div class='description overflow-auto mb-2'>
@@ -38,6 +35,7 @@
           </ul>
         </section> <!-- /drinks -->
       </section> <!-- /content -->
+
     </div><!-- /col-right  -->
   </div> <!-- /row  -->
 </article><!-- /feast  -->
