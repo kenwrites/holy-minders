@@ -8,6 +8,7 @@ import { MainFooterComponent } from './main-footer/main-footer.component';
 import { DayDetailComponent } from './day-detail/day-detail.component';
 import { TodayComponent } from './today/today.component';
 import { UserTestComponent } from './user-test/user-test.component';
+import { CelebrationComponent } from './celebration/celebration.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { UserTestComponent } from './user-test/user-test.component';
     DayDetailComponent,
     TodayComponent,
     UserTestComponent,
+    CelebrationComponent,
   ],
   imports: [
     BrowserModule,
