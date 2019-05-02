@@ -24,8 +24,6 @@ export class DayDetailComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(this.day);
-
     // extract human-readable day, month, and year from day.date
 
     this.date_split = this.day.date

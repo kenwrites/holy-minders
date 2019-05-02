@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Day, Celebration } from '../definitions/day';
+import { MyHolyDaysService } from '../services/my-holy-days.service';
 
 @Component({
   selector: 'app-my-holy-days',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyHolyDaysComponent implements OnInit {
 
-  constructor() { }
+  my_holy_days: Day[]
+
+  constructor(private myHolyDays: MyHolyDaysService) { }
 
   ngOnInit() {
+
+  }
+
+  getMyDays() {
+    this.my_holy_days = this.myHolyDays.getDays();
   }
 
 }

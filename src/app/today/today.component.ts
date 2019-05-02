@@ -19,7 +19,8 @@ export class TodayComponent implements OnInit {
   days_of_obligation: Day[];
   my_holy_days: Day[];
 
-  constructor(private holyDaySearch: HolyDaySearchService, private myHolyDays: MyHolyDaysService) {
+  constructor(private holyDaySearch: HolyDaySearchService, 
+    private myHolyDays: MyHolyDaysService) {
   }
 
   ngOnInit() {
@@ -28,7 +29,6 @@ export class TodayComponent implements OnInit {
     // this.getMonth(13);
     // this.getDay(5, 1);
     // this.getDaysOfObligation(2019);
-    this.makeNewUser();
   }
 
   getToday() {
@@ -84,18 +84,9 @@ export class TodayComponent implements OnInit {
       );
   }
 
-  makeNewUser() {
-    this.holyDaySearch.getDaysOfObligation(2019).pipe(
-      catchError(error => { throw new Error(error.message); })
-    ).subscribe(
-      days => this.myHolyDays.makeNewUser(days),
-      error => console.error(error.message),
-    );
-  }
 
-  getMyDays() {
-    this.my_holy_days = this.myHolyDays.getDays();
-  }
+
+
 
   addDay(day: Day) {
     this.myHolyDays.addDay(day);
