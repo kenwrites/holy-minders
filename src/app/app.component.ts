@@ -11,10 +11,11 @@ import { catchError } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   title = 'holy-minders-angular';
+  user_created: boolean;
 
   constructor(private holyDaySearch: HolyDaySearchService,
     private myHolyDays: MyHolyDaysService) {
-
+      this.user_created = false;
   }
 
   ngOnInit() {
@@ -27,7 +28,8 @@ export class AppComponent implements OnInit {
     ).subscribe(
       days => this.myHolyDays.makeNewUser(days),
       error => console.error(error.message),
-    );
+      () => this.user_created = true,
+      );
   }
 
 }

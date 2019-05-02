@@ -85,9 +85,6 @@ export class TodayComponent implements OnInit {
   }
 
 
-
-
-
   addDay(day: Day) {
     this.myHolyDays.addDay(day);
   }

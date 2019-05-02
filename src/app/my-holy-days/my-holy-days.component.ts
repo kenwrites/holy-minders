@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Day, Celebration } from '../definitions/day';
+import { Day } from '../definitions/day';
 import { MyHolyDaysService } from '../services/my-holy-days.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class MyHolyDaysComponent implements OnInit {
   constructor(private myHolyDays: MyHolyDaysService) { }
 
   ngOnInit() {
-
+    this.getMyDays();
   }
 
   getMyDays() {
