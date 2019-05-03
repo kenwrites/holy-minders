@@ -12,10 +12,10 @@
             <li *ngFor='let day of formatted_days' class='list-group-item'>
               <span class='d-block py-1'>
                 <span class='d-block float-left list_date font-weight-bold'>{{day.month}} {{day.JSDate.getDate()}}</span>
-                {{day.celebrations[0].title}}
+                {{day.celebrations[0].title}}<span *ngIf='day.celebrations[1]'> and {{day.celebrations[1].title}}</span>
               </span>
               <button class="btn btn-primary-lighter text-dark mr-1" (click)=removeDay(day)>Remove</button>
-              <button class="btn btn-primary-lighter text-dark">Details</button>
+              <!-- <button class="btn btn-primary-lighter text-dark">Details</button> -->
             </li>
           </ul> <!-- /days list -->    
         </div><!-- /col-right  -->
