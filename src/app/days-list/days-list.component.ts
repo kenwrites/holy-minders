@@ -29,9 +29,4 @@ export class DaysListComponent implements OnInit {
     )
   }
 
-  processDateString(date_string) {
-    return process_date_string(date_string);
-  }
-  
-
 }
