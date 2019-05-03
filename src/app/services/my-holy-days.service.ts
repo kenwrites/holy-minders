@@ -34,6 +34,7 @@ export class MyHolyDaysService {
 
   removeDay(day_to_remove: Day) {
     this.my_holy_days = this.my_holy_days.filter(day => day !== day_to_remove)
+    console.log(this.my_holy_days);
   }
 
   // provide list of days for current user

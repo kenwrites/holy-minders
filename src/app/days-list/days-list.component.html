@@ -3,8 +3,15 @@
     <div class='col-2 col-left bg-complement-lightest rounded text-right pt-1 mb-3'>
     </div><!-- /col-left -->    
     <div class='col-10 col-right'>
-      <ul class='list-group'>
-        <li *ngFor='let day of days' class='list-group-item'>{{day.date}}: {{day.celebrations[0].title}}</li>
+      <ul *ngIf='formatted_days[0]' class='list-group'>
+        <li *ngFor='let day of formatted_days' class='list-group-item'>
+          <span class='d-block py-1'>
+            <span class='d-block float-left list_date font-weight-bold'>{{day.month}} {{day.JSDate.getDate()}}</span>
+            {{day.celebrations[0].title}}
+          </span>
+          <button class="btn btn-primary-lighter text-dark mr-1" (click)=removeDay(day)>Remove</button>
+          <button class="btn btn-primary-lighter text-dark">Details</button>
+        </li>
       </ul>
       <!-- List goes here -->
 

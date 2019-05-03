@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Day, Celebration, FormattedDay } from '../definitions/day';
 import { DateObject, process_date_string } from '../scripts/process_date_string';
 import { days_of_obligation } from '../data/days-of-obligation';
+import { MyHolyDaysService } from '../services/my-holy-days.service';
 
 @Component({
   selector: 'app-days-list',
@@ -15,7 +16,7 @@ export class DaysListComponent implements OnInit {
   @Input() days: Day[];
   formatted_days: FormattedDay[];
 
-  constructor() { }
+  constructor(private myHolyDays: MyHolyDaysService) { }
 
   ngOnInit() {
     this.formatted_days = this.days.map(
@@ -26,7 +27,13 @@ export class DaysListComponent implements OnInit {
         formatted_day.month = date_obj.month;
         return formatted_day;
       }
+
     )
+  }
+
+  removeDay(day) {
+    this.myHolyDays.removeDay(day);
+    console.log(this.days);
   }
 
 }
