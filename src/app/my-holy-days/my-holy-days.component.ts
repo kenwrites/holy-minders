@@ -12,8 +12,13 @@ export class MyHolyDaysComponent implements OnInit {
 
   my_holy_days: Day[];
   formatted_days: FormattedDay[];
+  header_title: string;
+  header_id: string;
 
-  constructor(private myHolyDays: MyHolyDaysService) { }
+  constructor(private myHolyDays: MyHolyDaysService) { 
+    this.header_id = "my-holy-days-hdr";
+    this.header_title = "Your Holy Days";
+  }
 
   ngOnInit() {
     this.getMyDays();
@@ -23,6 +28,14 @@ export class MyHolyDaysComponent implements OnInit {
     this.my_holy_days = this.myHolyDays.getDays();
     this.formatted_days = this.formatDays(this.my_holy_days);
   }
+
+  removeDay(day) {
+    this.myHolyDays.removeDay(day);
+    this.getMyDays();
+  }
+
+  // formatDays() returns an array of the given days with a JavaScript Date and human-readable
+  // month attached as new properties.
 
   formatDays(days): FormattedDay[] {
     let formatted_days: FormattedDay[];
@@ -37,8 +50,5 @@ export class MyHolyDaysComponent implements OnInit {
     return formatted_days;
   }
 
-  removeDay(day) {
-    this.myHolyDays.removeDay(day);
-    this.getMyDays();
-  }
+
 }

@@ -1,26 +1,4 @@
 <section id="today" aria-labelledby="today-hdr">
-    <div class='container'>
-        <h2 id="today-hdr" class='bg-secondary text-white p-2 rounded mt-3 mx-n3'>Today in the Liturgical Calendar</h2>
-    </div>
+    <app-section-header [id]="header_id" [title]="header_title"></app-section-header>
     <app-day-detail *ngIf='today' [day]='today'></app-day-detail>    
 </section>
-
-<!-- Elements for testing services
-<p *ngIf='today'>Here is today:  {{today.date}}</p>
-<p *ngIf='tomorrow'>Here is tomorrow:  {{tomorrow.date}}</p>
-<p *ngIf='month'>Here is the first of the month: {{month[0].date}}</p>
-<p *ngIf='day'>Here is the day you requested: {{day.date}}</p>
-<section *ngIf='days_of_obligation'>
-    <ul>
-        <li>day: {{days_of_obligation[0].date}}</li>
-        <li>season: {{days_of_obligation[0].season}}</li>
-        <li>season_week: {{days_of_obligation[0].season_week}}</li>
-        <li>weekday: {{days_of_obligation[0].weekday}}</li>
-        <li>season: {{days_of_obligation[0].season}}</li>
-        <li *ngIf='days_of_obligation[0].celebrations[0]'>celebration 1: {{days_of_obligation[0].celebrations[0].title}}</li>
-        <li *ngIf='days_of_obligation[0].celebrations[1]'>celebration 2: {{days_of_obligation[0].celebrations[1].title}}</li>
-    </ul>
-</section>
-<button (click)='getMyDays()'>Get My Days</button>
-<button (click)='addDay(today)'>Add Today to My Holy Days</button>
-<button (click)='removeDay(today)'>Remove Today from My Holy Days</button> -->

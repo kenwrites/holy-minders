@@ -11,6 +11,8 @@ import { DayDetailComponent } from './day-detail/day-detail.component';
 import { TodayComponent } from './today/today.component';
 import { CelebrationComponent } from './celebration/celebration.component';
 import { MyHolyDaysComponent } from './my-holy-days/my-holy-days.component';
+import { DaySearchComponent } from './day-search/day-search.component';
+import { SectionHeaderComponent } from './section-header/section-header.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { MyHolyDaysComponent } from './my-holy-days/my-holy-days.component';
     TodayComponent,
     CelebrationComponent,
     MyHolyDaysComponent,
+    DaySearchComponent,
+    SectionHeaderComponent,
   ],
   imports: [
     BrowserModule,

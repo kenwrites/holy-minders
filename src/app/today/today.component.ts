@@ -18,9 +18,13 @@ export class TodayComponent implements OnInit {
   day: Day;
   days_of_obligation: Day[];
   my_holy_days: Day[];
+  header_title: string;
+  header_id: string;
 
   constructor(private holyDaySearch: HolyDaySearchService, 
     private myHolyDays: MyHolyDaysService) {
+      this.header_id = "today-hdr"; 
+      this.header_title = "Today in the Liturgical Calendar"; 
   }
 
   ngOnInit() {

@@ -1,7 +1,8 @@
 <section id="my-holy-days" aria-labelledby="my-holy-days-hdr">
-  <div class='container'>
+  <app-section-header [id]="header_id" [title]="header_title"></app-section-header>
+  <!-- <div class='container'>
       <h2 id="my-holy-days-hdr" class='bg-secondary text-white p-2 rounded mt-3 mx-n3'>Your Holy Days</h2>
-  </div>
+  </div> -->
   <div class='py-3 container'>
       <div class='row'>
         <div class='col-2 col-left bg-complement-lightest rounded text-right pt-1'>
@@ -16,9 +17,8 @@
               <button class="btn btn-primary-lighter text-dark mr-1" (click)=removeDay(day)>Remove</button>
               <button class="btn btn-primary-lighter text-dark">Details</button>
             </li>
-          </ul>
-          <!-- List goes here -->
-    
+          </ul> <!-- /days list -->    
         </div><!-- /col-right  -->
       </div> <!-- /row  -->
-    </div><!-- /feast  --></section>
+    </div> <!-- /container  -->
+  </section>
