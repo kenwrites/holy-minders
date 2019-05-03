@@ -1,3 +1,18 @@
-<p>
-  day-search works!
-</p>
+<section id="day-search" aria-labelledby="search-hdr">
+  <app-section-header [id]="header_id" [title]="header_title"></app-section-header>
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="date_input">Date</label>
+        <input type="date" id="date_input" class="form-control">
+      </div>
+      <button type="button" (click)=getHolyDay(date_input.value) class="btn btn-primary-lighter text-dark font-weight-bold">Search</button>
+    </form>
+  </div> <!-- /container -->
+  <app-section-header *ngIf='day' [id]='results_id' [title]='results_title'></app-section-header>
+  <div class="container mt-3">
+    <button *ngIf='day' (click)=addDay() type="button" class="btn btn-primary-lighter text-dark font-weight-bold">Add this Day to My Holy Days</button>
+    <span *ngIf='day_added' class='d-inline-block mx-2'>Day added!</span>
+  </div>
+  <app-day-detail *ngIf='day' [day]='day'></app-day-detail>
+</section>
