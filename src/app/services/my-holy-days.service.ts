@@ -28,6 +28,7 @@ export class MyHolyDaysService {
   addDay(day: Day) {
     this.my_holy_days.push(day);
     this.sortDays();
+    console.log(this.my_holy_days);
   }
 
   // remove day

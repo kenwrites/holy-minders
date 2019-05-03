@@ -33,6 +33,7 @@ export class DaySearchComponent implements OnInit {
   }
 
   getHolyDay(date_string: string) {
+    this.day = undefined; // need to find a better solution:  without this line, day_detail doesn't update.  Seems inelegant, though...
     this.day_added = false;
     const date_obj = process_date_string(date_string);
     this.getDay(date_obj.date);
@@ -45,7 +46,10 @@ export class DaySearchComponent implements OnInit {
           date.getFullYear()).pipe(
         catchError(error => { throw new Error(error.message); })
       )
-      .subscribe(search_result => this.day = search_result);
+      .subscribe(search_result => {
+        this.day = search_result;
+        console.log(this.day);
+      });
   }
 
   addDay() {
