@@ -48,7 +48,6 @@ export class DaySearchComponent implements OnInit {
       )
       .subscribe(search_result => {
         this.day = search_result;
-        console.log(this.day);
       });
   }
 
