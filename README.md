@@ -1,7 +1,6 @@
 # What's here?
 
-A web application for reminding forgetful Catholics about various Feasts, Fasts, Solemnities, Memorials, Optional Memorials, and associated errata. (There's a lot to keep track of, you know)
-
+An app for learning about Catholic Feasts, Fasts, Solemnities, Memorials, Optional Memorials, and associated errata.  (There's a lot to keep track of, you know)  In the future, will also send reminders to attend mass before holy days of obligation.  d
 ## Complete:
 
 Partial mockup of front-end.  Some functions performed here will move to backend when site is complete.  
