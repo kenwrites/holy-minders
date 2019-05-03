@@ -35,6 +35,10 @@ export class MyHolyDaysComponent implements OnInit {
         return formatted_day;
       });
     return formatted_days;
+  }
 
+  removeDay(day) {
+    this.myHolyDays.removeDay(day);
+    this.getMyDays();
   }
 }
